@@ -91,9 +91,6 @@ namespace refCruzada
                         */
                         // exibe_palavras_nro(wordsList);
                         break;
-                    case 9:
-                        lettersList.exibir();
-                        break;
                     default:
                         Console.WriteLine("\nOpção inválida.");
                         break;
@@ -107,7 +104,7 @@ namespace refCruzada
         {
             Console.WriteLine("\n> Digite a palavra que deseja pesquisar na lista: ");
             input = Console.ReadLine();
-            if(input==null || input.Length>0){
+            if(input==null || input.Length<1){
                 Console.WriteLine("Palavra não encontrada");
                 return;
             }
@@ -117,6 +114,7 @@ namespace refCruzada
                 Console.WriteLine("Palavra não encontrada");
                 return;
             }
+
             NodeP? nodoPalavra = nodoLetra.lista.pesquisaPalavra(input);
             if(nodoPalavra==null){
                 Console.WriteLine("Palavra não encontrada");

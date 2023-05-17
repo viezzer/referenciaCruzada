@@ -182,5 +182,22 @@ namespace refCruzada
                 aux=aux.prox;
             }
         }
+
+        public void showListInvertido()
+        {
+            NodeP? aux=tail;
+
+            Console.Write("Palavras: ");
+            while(aux!=null)
+            {
+                if(aux.ant==null){
+                    Console.Write(aux.palavra+" ["+aux.freq+"]");    
+                }
+                else{
+                    Console.Write(aux.palavra+" ["+aux.freq+"] - ");
+                }
+                aux=aux.ant;
+            }
+        }
     }
 }

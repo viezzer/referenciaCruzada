@@ -5,6 +5,7 @@ namespace refCruzada
     public class ListaDeLetras
     {
         public NodeL? head {get;set;}
+        public NodeL? tail {get;set;}
         public int size;
         public ListaDeLetras(string[] words)
         {
@@ -40,8 +41,10 @@ namespace refCruzada
             if(head==null)
             {
                 head=novoNodo;
+                tail=novoNodo;
             }
             else
+            //lista ja possui letras
             {
                 NodeL? atual=head;
                 NodeL? anterior=head.ant;
@@ -62,6 +65,7 @@ namespace refCruzada
                 {
                     novoNodo.ant=anterior;
                     anterior.prox=novoNodo;
+                    tail=novoNodo;
                 }
                 //inserir ordenada
                 else if(anterior!=null && atual!=null)
@@ -108,7 +112,18 @@ namespace refCruzada
         }
 
         public void exibirInvertido(){
-            
+            if(tail==null)
+            {
+                Console.WriteLine("Lista não possui conteudo");
+                return;
+            }
+            NodeL? aux=tail;
+            while(aux!=null)
+            {
+                Console.WriteLine("\nLetra: "+char.ToUpper(aux.letra));
+                aux.lista.showListInvertido();
+                aux=aux.ant;
+            }
         }
     }
 }
