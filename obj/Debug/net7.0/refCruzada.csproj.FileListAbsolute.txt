@@ -1,0 +1,15 @@
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\bin\Debug\net7.0\refCruzada.exe
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\bin\Debug\net7.0\refCruzada.deps.json
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\bin\Debug\net7.0\refCruzada.runtimeconfig.json
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\bin\Debug\net7.0\refCruzada.dll
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\bin\Debug\net7.0\refCruzada.pdb
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.csproj.AssemblyReference.cache
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.AssemblyInfoInputs.cache
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.AssemblyInfo.cs
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.csproj.CoreCompileInputs.cache
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.dll
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refint\refCruzada.dll
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.pdb
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\refCruzada.genruntimeconfig.cache
+C:\Users\eduvi\Documents\UCS\3semestre\algoritmos e estruturas de dados\TDE3\refCruzada\obj\Debug\net7.0\ref\refCruzada.dll
