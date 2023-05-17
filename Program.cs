@@ -89,7 +89,7 @@ namespace refCruzada
                             EXIBE_PALAVRAS_NRO: exibe a lista das palavras que possuem um determinado
                             número de ocorrências informado.
                         */
-                        // exibe_palavras_nro(wordsList);
+                        exibe_palavras_nro(lettersList);
                         break;
                     default:
                         Console.WriteLine("\nOpção inválida.");
@@ -175,9 +175,23 @@ namespace refCruzada
 
         }
 
-        public static void exibe_palavras_nro(ListaDePalavras wordsList)
+        public static void exibe_palavras_nro(ListaDeLetras lettersList)
         {
+            Console.WriteLine("\n> Digite o número de ocorrencias: ");
+            int? num = int.Parse(Console.ReadLine());
+            if(num==null || num<1){
+                Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
+                return;
+            }
 
+            ListaDePalavras lpAux = lettersList.pesquisaPorNumeroDeOcorrencia(num);
+            if(lpAux==null)
+            {
+                Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
+                return;
+            }
+
+            lpAux.showList();
         }
     }
 }

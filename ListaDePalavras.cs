@@ -135,6 +135,21 @@ namespace refCruzada
             return null;
         }
 
+        public NodeP? pesquisaPalavraNroOcorrencia(int n)
+        {
+            NodeP? nodo = head;
+            while(nodo!=null)
+            {
+                //verificar se a palavra do nodo tem o numero de ocorrencias n
+                if(nodo.freq==n)
+                {
+                    return nodo;
+                }
+                nodo=nodo.prox;
+            }
+            return null;
+        }
+
         public Boolean remove(string p)
         {
             NodeP? aux=head, ant=head;

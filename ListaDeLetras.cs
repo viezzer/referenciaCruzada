@@ -95,6 +95,30 @@ namespace refCruzada
             return null;
         }
 
+        public ListaDePalavras? pesquisaPorNumeroDeOcorrencia(int n)
+        {
+            ListaDePalavras? lp = null;
+            if(head==null)
+            {
+                Console.WriteLine("Lista não possui conteudo");
+                return;
+            }
+            NodeL? aux=head;
+            while(aux!=null)
+            {
+                //iterar sobre as palavras da lista da letra 
+                lp = aux.lista;
+                NodeP? auxP = lp.head;
+                while(auxP!=null){
+                    if(auxP.freq==n)
+                    {
+                        lp.inserePalavra(auxP.palavra)
+                    }
+                }
+                aux=aux.prox;
+            }
+        }
+
         public void exibir()
         {
             if(head==null)
