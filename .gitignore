@@ -1,0 +1,10 @@
+# Arquivos gerados pelo Visual Studio
+*.obj
+*.cache
+*.suo
+*.user
+*.bak
+*.tmp
+*.log
+*.vs
+*.vscode
