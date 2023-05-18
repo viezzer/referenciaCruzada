@@ -43,7 +43,7 @@ namespace refCruzada
                 NodeP auxPalavra = aux.lista.head;
                 while(auxPalavra!=null)
                 {
-                    lp.addLast(auxPalavra);
+                    lp.inserePalavra(auxPalavra);
                     auxPalavra=auxPalavra.prox;
                 }
                 aux=aux.prox;
@@ -113,6 +113,7 @@ namespace refCruzada
             if(tail!=null && tail.letra==l)
             {
                 tail=tail.ant;
+                tail.prox=null;
                 size--;
                 return true;
             }

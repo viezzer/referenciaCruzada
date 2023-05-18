@@ -152,31 +152,49 @@ namespace refCruzada
         public Boolean remove(string p)
         {
             // remove inicio
-            if(head!=null && head.palavra==p){
+            if(head!=null && head.palavra.ToLower()==p.ToLower()){
                 ocorrencias -= head.freq;
-                head=head.prox;
+                if(head.prox==null)
+                {
+                    head=null;
+                    tail=null;
+                }
+                else
+                {
+                    head.prox.ant=null;
+                    head=head.prox;
+                }
                 size--;
                 return true;
             }
             //remove fim
-            else if(tail!=null && tail.palavra==p)
+            else if(tail!=null && tail.palavra.ToLower()==p.ToLower())
             {
                 ocorrencias-=tail.freq;
-                tail=tail.ant;
+                if (tail.ant == null)
+                {
+                    head = null;
+                    tail = null;
+                }
+                else
+                {
+                    tail.ant.prox = null;
+                    tail = tail.ant;
+                }
                 size--;
                 return true;
             }
-
-            NodeP? aux=head, ant=head.ant;
+            //remove meio
+            NodeP? aux=head;
             while(aux!=null)
             {
-                if(aux.palavra==p){
-                    ocorrencias-=aux.freq;
-                    ant.prox=aux.prox;
+                if(aux.palavra.ToLower()==p.ToLower()){
+                    ocorrencias -= aux.freq;
+                    aux.ant.prox = aux.prox;
+                    aux.prox.ant = aux.ant;
                     size--;
                     return true;
                 }
-                ant=aux;
                 aux=aux.prox;
             }
             return false;
@@ -189,11 +207,12 @@ namespace refCruzada
             Console.Write("Palavras: ");
             while(aux!=null)
             {
-                if(aux.prox==null){
-                    Console.Write(aux.palavra+" ["+aux.freq+"]");    
-                }
-                else{
+                if(aux.prox!=null){
                     Console.Write(aux.palavra+" ["+aux.freq+"] - ");
+                }
+                else
+                {
+                    Console.Write(aux.palavra+" ["+aux.freq+"]");    
                 }
                 aux=aux.prox;
             }
@@ -218,37 +237,34 @@ namespace refCruzada
 
         public void ordenaFrequencia()
         {
-            NodeP? atual=head;
-            while(atual!=null)
+            NodeP? atual = head;
+            while (atual != null)
             {
-                NodeP? minNode=atual;
-                NodeP? aux=atual.prox;
+                NodeP? minNode = atual;
+                NodeP? aux = atual.prox;
 
-                while(aux!=null)
+                while (aux != null)
                 {
-                    if(aux.freq < minNode.freq)
+                    if (aux.freq < minNode.freq)
                     {
                         minNode = aux;
                     }
                     aux = aux.prox;
                 }
 
-                TrocarConteudoNodos(atual, minNode);
+                if (atual != minNode)
+                {
+                    // Trocar o conteúdo dos nodos
+                    string tempPalavra = atual.palavra;
+                    int tempFreq = atual.freq;
+                    atual.palavra = minNode.palavra;
+                    atual.freq = minNode.freq;
+                    minNode.palavra = tempPalavra;
+                    minNode.freq = tempFreq;
+                }
 
                 atual = atual.prox;
             }
-        }
-
-        private void TrocarConteudoNodos(NodeP nodo1, NodeP nodo2)
-        {
-            int tempFreq = nodo1.freq;
-            string tempPalavra = nodo1.palavra;
-
-            nodo1.freq = nodo2.freq;
-            nodo1.palavra = nodo2.palavra;
-
-            nodo2.freq = tempFreq;
-            nodo2.palavra = tempPalavra;
         }
     }
 }

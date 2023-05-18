@@ -127,7 +127,7 @@ namespace refCruzada
         {
             Console.WriteLine("\n> Digite a palavra que deseja remover da lista: ");
             input = Console.ReadLine();
-            if(input!=null && lettersList.removePalavra(input))
+            if(input!=null && input!="" && lettersList.removePalavra(input))
             {
                 Console.WriteLine("Palavra '"+input+"' removida da lista");
                 return;
