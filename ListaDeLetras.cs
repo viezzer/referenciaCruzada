@@ -79,12 +79,47 @@ namespace refCruzada
             size++;
         }
 
-        public void inserePalavra(char l, string p){
-            NodeL? nodo = pesquisaLetra(l);
-            nodo.lista.inserePalavra(p);
+        public Boolean removeLetra(char l)
+        {
+            //remove inicio
+            if(head!=null && head.letra==l)
+            {
+                head=head.prox;
+                size--;
+                return true;
+            }
+            //remove fim
+            if(tail!=null && tail.letra==l)
+            {
+                tail=tail.ant;
+                size--;
+                return true;
+            }
+            //remove meio
+            NodeL? aux=head, ant=head.ant;
+            while(aux!=null)
+            {
+                if(aux.letra==l)
+                {
+                    ant.prox=aux.prox;
+                    size--;
+                    return true;
+                }
+                ant=aux;
+                aux=aux.prox;
+            }
+            return false;
         }
 
-        public NodeL? pesquisaLetra(char l){
+        public void inserePalavra(char l, string p)
+        {
+            NodeL? nodo = pesquisaLetra(l);
+            NodeP nodoP = new NodeP(p);
+            nodo.lista.inserePalavra(nodoP);
+        }
+
+        public NodeL? pesquisaLetra(char l)
+        {
             NodeL? aux = head;
             while(aux!=null){
                 if(aux.letra==l){
@@ -95,13 +130,36 @@ namespace refCruzada
             return null;
         }
 
+        public Boolean removePalavra(string p)
+        {
+            NodeL? nodoL = pesquisaLetra(p[0]);
+
+            if(nodoL!=null)
+            {
+                if(nodoL.lista.remove(p))
+                {
+                    if(nodoL.lista.size==0){
+                        Console.WriteLine("removendo Letra...");
+
+                        if(removeLetra(nodoL.letra))
+                        {
+                            Console.WriteLine("letra removida");
+                        }
+                    }
+                    return true;
+                }  
+
+            }
+            return false;
+        }
+
         public ListaDePalavras? pesquisaPorNumeroDeOcorrencia(int n)
         {
             ListaDePalavras? lp = null;
             if(head==null)
             {
                 Console.WriteLine("Lista não possui conteudo");
-                return;
+                return null;
             }
             NodeL? aux=head;
             while(aux!=null)
@@ -112,11 +170,13 @@ namespace refCruzada
                 while(auxP!=null){
                     if(auxP.freq==n)
                     {
-                        lp.inserePalavra(auxP.palavra)
+                        lp.inserePalavra(auxP);
                     }
+                    auxP = auxP.prox;
                 }
                 aux=aux.prox;
             }
+            return lp;
         }
 
         public void exibir()

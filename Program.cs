@@ -45,7 +45,7 @@ namespace refCruzada
                         /*
                         REMOVE: remove uma palavra da lista (com suas ocorrências)
                         */
-                        // remove_palavra(wordsList);
+                        remove_palavra(lettersList);
                         break;
                     case 3:
                         /*
@@ -123,11 +123,11 @@ namespace refCruzada
             Console.WriteLine("Palavra: "+nodoPalavra.palavra+" | Ocorrências: "+nodoPalavra.freq);
         }
 
-        public static void remove_palavra(ListaDePalavras wordsList)
+        public static void remove_palavra(ListaDeLetras lettersList)
         {
             Console.WriteLine("\n> Digite a palavra que deseja remover da lista: ");
             input = Console.ReadLine();
-            if(input!=null && wordsList.remove(input))
+            if(input!=null && lettersList.removePalavra(input))
             {
                 Console.WriteLine("Palavra '"+input+"' removida da lista");
                 return;
@@ -178,8 +178,8 @@ namespace refCruzada
         public static void exibe_palavras_nro(ListaDeLetras lettersList)
         {
             Console.WriteLine("\n> Digite o número de ocorrencias: ");
-            int? num = int.Parse(Console.ReadLine());
-            if(num==null || num<1){
+            int num = int.Parse(Console.ReadLine());
+            if(num<1){
                 Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
                 return;
             }

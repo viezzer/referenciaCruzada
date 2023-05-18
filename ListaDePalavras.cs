@@ -75,9 +75,8 @@ namespace refCruzada
             }
         }
 
-        public void inserePalavra(string p)
+        public void inserePalavra(NodeP nova)
         {
-            NodeP nova = new NodeP(p);
             //nenhuma palavra na lista
             if(head==null)
             {
@@ -85,7 +84,7 @@ namespace refCruzada
                 return;
             }
             //palavra ja esta na lista, aumenta frequencia da palavra
-            NodeP? pesquisada=pesquisaPalavra(p);
+            NodeP? pesquisada=pesquisaPalavra(nova.palavra);
             if(pesquisada!=null){
                 ocorrencias++;
                 pesquisada.freq++;
@@ -94,7 +93,7 @@ namespace refCruzada
             //palavra não esta na lista, inserir ordenada
             NodeP? aux=head;
             NodeP? ant=head.ant;
-            while(aux!=null && aux.palavra.CompareTo(p)<0)
+            while(aux!=null && aux.palavra.CompareTo(nova.palavra)<0)
             {
                 ant=aux;
                 aux=aux.prox;
@@ -152,13 +151,14 @@ namespace refCruzada
 
         public Boolean remove(string p)
         {
-            NodeP? aux=head, ant=head;
+            // remove inicio
             if(head!=null && head.palavra==p){
                 ocorrencias -= head.freq;
                 head=head.prox;
                 size--;
                 return true;
             }
+            //remove fim
             else if(tail!=null && tail.palavra==p)
             {
                 ocorrencias-=tail.freq;
@@ -167,6 +167,7 @@ namespace refCruzada
                 return true;
             }
 
+            NodeP? aux=head, ant=head.ant;
             while(aux!=null)
             {
                 if(aux.palavra==p){
