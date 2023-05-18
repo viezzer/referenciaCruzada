@@ -58,7 +58,7 @@ namespace refCruzada
                         CONTA_OCORRÊNCIAS: retorna o número total de ocorrências das palavras da lista
                         (soma os contadores das palavras)
                         */
-                        // conta_ocorrencias(wordsList);
+                        conta_ocorrencias(lettersList);
                         break;
                     case 5:
                         /*
@@ -74,7 +74,7 @@ namespace refCruzada
                         determinada letra (só as palavras ou com contadores), em ordem alfabética (de A a Z)
                         ou em ordem alfabética inversa (de Z a A) de palavras (deve ter as duas opções).
                         */
-                        // exibe_palavras_letra(wordsList);
+                        exibe_palavras_letra(lettersList);
                         break;
                     case 7:
                         /*
@@ -141,9 +141,10 @@ namespace refCruzada
             Console.WriteLine("\nA lista possui "+numPalavras+" palavras");
         }
 
-        public static void conta_ocorrencias(ListaDePalavras wordsList)
+        public static void conta_ocorrencias(ListaDeLetras lettersList)
         {
-            Console.WriteLine("A lista possui "+wordsList.ocorrencias+" ocorrencias de palavras");
+            int numOcorrencias = lettersList.contaOcorrencias();
+            Console.WriteLine("A lista possui "+numOcorrencias+" ocorrencias de palavras");
         }
 
         public static void exibe_palavras(ListaDeLetras lettersList)
@@ -166,9 +167,30 @@ namespace refCruzada
             }
         }
 
-        public static void exibe_palavras_letra(ListaDePalavras wordsList)
+        public static void exibe_palavras_letra(ListaDeLetras lettersList)
         {
-
+            Console.WriteLine("\n> Digite uma letra: ");
+            input = Console.ReadLine();
+            ListaDePalavras lp = lettersList.filtraLetra(input[0]);
+            if(lp!=null)
+            {
+                Console.WriteLine("\n> Escolha a ordem da lista: ");
+                Console.WriteLine("1. Normal (A-Z)");
+                Console.WriteLine("2. Inversa (Z-A)");
+                int opcao = int.Parse(Console.ReadLine());
+                switch (opcao)
+                {
+                    case 1:
+                        lp.showList();
+                        break;
+                    case 2:
+                        lp.showListInvertido();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                }
+            }
         }
 
         public static void exibe_palavras_nro_ocorrencia(ListaDePalavras wordsList)

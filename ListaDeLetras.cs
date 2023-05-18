@@ -130,6 +130,34 @@ namespace refCruzada
             return conta;
         }
 
+        public int contaOcorrencias()
+        {
+            int conta = 0;
+            NodeL aux = head;
+            while(aux!=null)
+            {
+                conta+=aux.lista.ocorrencias;
+                aux=aux.prox;
+            }
+            return conta;
+        }
+
+        public ListaDePalavras filtraLetra(char l)
+        {
+            NodeL? nodoL = pesquisaLetra(l);
+            ListaDePalavras lp;
+            if(nodoL!=null)
+            {
+                lp = nodoL.lista;
+                //se a lista tiver palavras retornar lista
+                if(lp.size>0)
+                {
+                    return lp;
+                }
+            }
+            return null;
+        }
+
         public NodeL? pesquisaLetra(char l)
         {
             NodeL? aux = head;
