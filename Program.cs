@@ -82,7 +82,7 @@ namespace refCruzada
                         os respectivos contadores) em ordem decrescente de número de ocorrências, ou em
                         ordem crescente de número de ocorrências (deve ter as duas opções)
                         */
-                        // exibe_palavras_nro_ocorrencia(wordsList);
+                        exibe_palavras_nro_ocorrencia(lettersList);
                         break;
                     case 8:
                         /*
@@ -193,28 +193,45 @@ namespace refCruzada
             }
         }
 
-        public static void exibe_palavras_nro_ocorrencia(ListaDePalavras wordsList)
+        public static void exibe_palavras_nro_ocorrencia(ListaDeLetras lettersList)
         {
-
+            Console.WriteLine("Escolha a ordem: ");
+            Console.WriteLine("1. Crescente");
+            Console.WriteLine("2. Decrescente");
+            int opcao = int.Parse(Console.ReadLine());
+            ListaDePalavras? lp = lettersList.getPalavras();
+            if(lp!=null)
+            {
+                lp.ordenaFrequencia();
+                switch (opcao)
+                {
+                    case 1:
+                        lp.showList();
+                        break;
+                    case 2:
+                        lp.showListInvertido();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                }
+            }
+            
         }
 
         public static void exibe_palavras_nro(ListaDeLetras lettersList)
         {
             Console.WriteLine("\n> Digite o número de ocorrencias: ");
             int num = int.Parse(Console.ReadLine());
-            if(num<1){
-                Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
-                return;
-            }
 
-            ListaDePalavras lpAux = lettersList.pesquisaPorNumeroDeOcorrencia(num);
-            if(lpAux==null)
+            ListaDePalavras? lp = lettersList.pesquisaPorNumeroDeOcorrencia(num);
+            if(lp!=null)
             {
-                Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
+                lp.showList();
                 return;
             }
 
-            lpAux.showList();
+            Console.WriteLine("Nenhuma palavra encontrada com o número de ocorrencia digitado.");
         }
     }
 }

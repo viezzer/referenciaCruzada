@@ -215,5 +215,40 @@ namespace refCruzada
                 aux=aux.ant;
             }
         }
+
+        public void ordenaFrequencia()
+        {
+            NodeP? atual=head;
+            while(atual!=null)
+            {
+                NodeP? minNode=atual;
+                NodeP? aux=atual.prox;
+
+                while(aux!=null)
+                {
+                    if(aux.freq < minNode.freq)
+                    {
+                        minNode = aux;
+                    }
+                    aux = aux.prox;
+                }
+
+                TrocarConteudoNodos(atual, minNode);
+
+                atual = atual.prox;
+            }
+        }
+
+        private void TrocarConteudoNodos(NodeP nodo1, NodeP nodo2)
+        {
+            int tempFreq = nodo1.freq;
+            string tempPalavra = nodo1.palavra;
+
+            nodo1.freq = nodo2.freq;
+            nodo1.palavra = nodo2.palavra;
+
+            nodo2.freq = tempFreq;
+            nodo2.palavra = tempPalavra;
+        }
     }
 }

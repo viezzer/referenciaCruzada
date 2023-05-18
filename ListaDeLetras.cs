@@ -34,6 +34,27 @@ namespace refCruzada
             }
         }
 
+        public ListaDePalavras? getPalavras()
+        {
+            ListaDePalavras lp = new ListaDePalavras();
+            NodeL aux = head;
+            while(aux!=null)
+            {
+                NodeP auxPalavra = aux.lista.head;
+                while(auxPalavra!=null)
+                {
+                    lp.addLast(auxPalavra);
+                    auxPalavra=auxPalavra.prox;
+                }
+                aux=aux.prox;
+            }
+            if(lp.size>0)
+            {
+                return lp;
+            }
+            return null;
+        }
+
         public void insereLetra(char l)
         {
             NodeL novoNodo = new NodeL(l);
@@ -195,28 +216,30 @@ namespace refCruzada
 
         public ListaDePalavras? pesquisaPorNumeroDeOcorrencia(int n)
         {
-            ListaDePalavras? lp = null;
-            if(head==null)
-            {
-                Console.WriteLine("Lista não possui conteudo");
-                return null;
-            }
+            // criar nova lista de palavras
+            ListaDePalavras lp = new ListaDePalavras();
+            //adicionar palavras que possuem o numero de ocorrencias na lista
             NodeL? aux=head;
+            //percorre lista das letras
             while(aux!=null)
             {
-                //iterar sobre as palavras da lista da letra 
-                lp = aux.lista;
-                NodeP? auxP = lp.head;
+                //itera sobre as palavras da lista da letra 
+                NodeP? auxP = aux.lista.head;
                 while(auxP!=null){
                     if(auxP.freq==n)
                     {
-                        lp.inserePalavra(auxP);
+                        lp.addLast(auxP);
                     }
                     auxP = auxP.prox;
                 }
                 aux=aux.prox;
             }
-            return lp;
+
+            if(lp.size>0)
+            {
+                return lp;
+            }
+            return null;
         }
 
         public void exibir()
