@@ -51,7 +51,7 @@ namespace refCruzada
                         /*
                         CONTA: retorna o número total de palavras (total de nodos da lista)
                         */
-                        // conta_palavras(wordsList);
+                        conta_palavras(lettersList);
                         break;
                     case 4:
                         /*
@@ -135,9 +135,10 @@ namespace refCruzada
             Console.WriteLine("Palavra não encontrada na lista");
         }
 
-        public static void conta_palavras(ListaDePalavras wordsList)
+        public static void conta_palavras(ListaDeLetras lettersList)
         {
-            Console.WriteLine("A lista possui "+wordsList.size+" palavras");
+            int numPalavras = lettersList.contaPalavras();
+            Console.WriteLine("\nA lista possui "+numPalavras+" palavras");
         }
 
         public static void conta_ocorrencias(ListaDePalavras wordsList)

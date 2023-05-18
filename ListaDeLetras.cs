@@ -118,6 +118,18 @@ namespace refCruzada
             nodo.lista.inserePalavra(nodoP);
         }
 
+        public int contaPalavras()
+        {
+            int conta = 0;
+            NodeL aux = head;
+            while(aux!=null)
+            {
+                conta+=aux.lista.size;
+                aux=aux.prox;
+            }
+            return conta;
+        }
+
         public NodeL? pesquisaLetra(char l)
         {
             NodeL? aux = head;
