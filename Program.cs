@@ -31,6 +31,7 @@ namespace refCruzada
                 Console.WriteLine(">> Digite o número da opção desejada: ");
                 
                 opcao = int.Parse(Console.ReadLine());
+                // opcao = ;
 
                 switch (opcao)
                 {
@@ -199,7 +200,10 @@ namespace refCruzada
             Console.WriteLine("1. Crescente");
             Console.WriteLine("2. Decrescente");
             int opcao = int.Parse(Console.ReadLine());
+            // int opcao = 1;
+            Console.WriteLine("buscando palavras");
             ListaDePalavras? lp = lettersList.getPalavras();
+            Console.WriteLine("");
             if(lp!=null)
             {
                 lp.ordenaFrequencia();

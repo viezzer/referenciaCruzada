@@ -36,14 +36,21 @@ namespace refCruzada
 
         public ListaDePalavras? getPalavras()
         {
+            if(head==null)
+            {
+                Console.WriteLine("Lista não possui conteudo");
+                return null;
+            }
             ListaDePalavras lp = new ListaDePalavras();
-            NodeL aux = head;
+            NodeL? aux=head;
             while(aux!=null)
             {
-                NodeP auxPalavra = aux.lista.head;
+                Console.WriteLine("\nLetra: "+char.ToUpper(aux.letra));
+                NodeP? auxPalavra = aux.lista.head;
                 while(auxPalavra!=null)
                 {
-                    lp.inserePalavra(auxPalavra);
+                    Console.WriteLine("Palavra: "+auxPalavra.palavra);
+                    lp.addLast(auxPalavra);
                     auxPalavra=auxPalavra.prox;
                 }
                 aux=aux.prox;
@@ -229,7 +236,7 @@ namespace refCruzada
                 while(auxP!=null){
                     if(auxP.freq==n)
                     {
-                        lp.addLast(auxP);
+                        lp.inserePalavra(auxP);
                     }
                     auxP = auxP.prox;
                 }

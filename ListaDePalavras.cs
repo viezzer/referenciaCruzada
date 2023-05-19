@@ -125,7 +125,7 @@ namespace refCruzada
             while(nodo!=null)
             {
                 //verificar se a palavra do nodo é igual a p
-                if(nodo.palavra.ToLower()==p)
+                if(nodo.palavra.ToLower()==p.ToLower())
                 {
                     return nodo;
                 }
